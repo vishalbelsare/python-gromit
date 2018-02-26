@@ -1,8 +1,9 @@
 # Gromit
 
-Gromit is a pure-Python module that provides a very simple evolutionary algorithm.  The module was originally going to be named Wallace (after [Alfred Russel Wallace](https://en.wikipedia.org/wiki/Alfred_Russel_Wallace),) but that name was already taken.
+Gromit is a pure-Python module that provides a minimalist evolutionary algorithm.  The module was originally going to be named Wallace after [Alfred Russel Wallace](https://en.wikipedia.org/wiki/Alfred_Russel_Wallace), but that name was already taken.
 
-When should you use Gromit?  There are a lot of options in Python with evolutionary programming.  Gromit was written to provide a very simple evolutionary algorithm for optimizing parameters.  It aims to be easy to use for a certain class of problems.   It does not have many advanced features, optimizations, or even parallelization.  If you have a simple task of optimizing parameters that could fit this simple model and perform well enough without parallelization, then Gromit may be a good fit.  Otherwise, it is better to look elsewhere.
+When should you use Gromit?  There are a lot of options in Python with evolutionary programming.  Gromit was written to provide a very simple evolutionary algorithm for optimizing parameters.  It aims to be easy to use for a certain class of problems.   It does not have many advanced features, optimizations, or even parallelization.  If you have a simple task of optimizing parameters that could fit this simple model and perform well enough without parallelization, then Gromit may be a good fit.  Otherwise, it is better to look elsewhere.  This is not actively developed or maintained.  If it doesn't meet your needs in its current form, it may not be the right tool for the job.
+
 
 # Usage
 
@@ -24,7 +25,7 @@ The `fitness_handler` is a function that takes an `individual` as a parameter.  
 ## Example
 
 
-### General usage
+When using this module, most of the work goes into the creation of a fitness test.  Here is a simple example for demonstrating the usage.  Another working (though equally pointless) example could be found [here](https://github.com/DougHaber/python-gromit/blob/master/example.py).
 
 ```python
 from gromit import Gromit
@@ -55,8 +56,11 @@ def fitness_handler(individual):
     else: # One or more heads.  Bonus!
         points += 10
 
-    points += 10 if is_fluffy else -10
+    if is_fluffy:
+       points += 10
+
     points += 30 if is_domesticated else -30
+
 
     return points
 
@@ -67,7 +71,7 @@ for generation in range(0, 100):
    print("Generation %d: max fitness is %f" % (generation, max_fitness))
 
 
-most_fit_individual = gromit.get_most_fit_individual()
+individual = gromit.get_most_fit_individual()
 print(("Most fit individual's attributes:\n" + \
        "   %(size).2f feet, %(number_of_heads)d heads\n" + \
        "   %(is_domesticated)s domesticated, %(is_fluffy)s fluffy") % {
