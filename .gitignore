@@ -1,0 +1,9 @@
+# Emacs temp files
+*~
+\#*\#
+
+
+# Python
+*.pyc
+__pycache__
+venv
