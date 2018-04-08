@@ -2,7 +2,7 @@
 
 Gromit is a pure-Python module that provides a minimalist evolutionary algorithm.  The module was originally going to be named Wallace after [Alfred Russel Wallace](https://en.wikipedia.org/wiki/Alfred_Russel_Wallace), but that name was already taken.
 
-When should you use Gromit?  There are a lot of options in Python with evolutionary programming.  Gromit was written to provide a very simple evolutionary algorithm for optimizing parameters.  It aims to be easy to use for a certain class of problems.   It does not have many advanced features, optimizations, or even parallelization.  If you have a simple task of optimizing parameters that could fit this simple model and perform well enough without parallelization, then Gromit may be a good fit.  Otherwise, it is better to look elsewhere.  This is not actively developed or maintained.  If it doesn't meet your needs in its current form, it may not be the right tool for the job.
+**It is not recommended that anyone use Gromit.**  This was originally put together as a quick way of optimizing some parameters.  While it worked, I have since converted all of my usage to the [DEAP Framework](https://github.com/DEAP/deap) and abandoned development.  DEAP is much more mature and easy enough to use that it is probably a better choice in every situation.  
 
 
 # Usage
